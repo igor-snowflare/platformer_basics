@@ -9,6 +9,7 @@ public:
 	Collider collider;
 
 	void testHorizontalCollision(float distance);
+	void testVerticalCollision(float distance, int direction);
 
 private:
 	int direction;

@@ -4,6 +4,6 @@
 
 int main() {
 	GameObject testObject = GameObject(0, 0, 1, 1);
-	testObject.testHorizontalCollision(0.3);
+	testObject.testVerticalCollision(0.3, 1);
 	return 0;
 }
