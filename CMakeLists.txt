@@ -16,3 +16,6 @@ find_package(SDL3 REQUIRED)
 
 # Define the executable here instead of in src/CMakeLists
 add_executable(PlatformerTest ${MAIN_FILE} ${SRC_FILES})
+
+# Link SDL3
+target_link_libraries(PlatformerTest PRIVATE SDL3::SDL3)
