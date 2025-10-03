@@ -29,3 +29,26 @@ Game::Game(std::string_view title, int width, int height, bool fullscreen) {
 		isRunning = false;
 	}
 }
+
+bool Game::running() {
+	return isRunning;
+}
+
+void Game::handleEvents() {
+	SDL_Event event;
+	SDL_PollEvent(&event);
+
+	switch (event.type) {
+		case SDL_EVENT_QUIT:
+			isRunning = false;
+			break;
+		
+		default:
+			break;
+	}
+}
+
+void Game::render() {
+	SDL_RenderClear(renderer);
+	SDL_RenderPresent(renderer);
+}

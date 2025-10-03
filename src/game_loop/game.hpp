@@ -7,7 +7,9 @@
 class Game {
 public:
 	Game(std::string_view title, int width, int height, bool fullscreen);
-	bool Running();
+	bool running();
+	void handleEvents();
+	void render();
 
 private:
 	bool isRunning;

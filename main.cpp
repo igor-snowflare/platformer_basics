@@ -8,5 +8,11 @@ int main() {
 	Game game = Game(windowTitle, screenWidth, screenHeight, false);
 	GameObject testObject = GameObject(0, 0, 1, 1);
 	testObject.testVerticalCollision(0.3, 1);
+
+	while (game.running()) {
+		game.handleEvents();
+		game.render();
+	}
+
 	return 0;
 }
