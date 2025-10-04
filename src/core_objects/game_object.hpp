@@ -11,6 +11,6 @@ public:
 	void testHorizontalCollision(float distance);
 	void testVerticalCollision(float distance, int direction);
 
-private:
+protected:
 	int direction;
 };

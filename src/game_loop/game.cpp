@@ -1,6 +1,6 @@
 #include "game.hpp"
 
-Game::Game(std::string_view title, int width, int height, bool fullscreen) {
+Game::Game(std::string_view title, int width, int height, bool fullscreen, GameManager& _gameManager) : gameManager(_gameManager) {
 	int flags = 0;
 
 	if (fullscreen) {

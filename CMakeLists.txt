@@ -19,3 +19,6 @@ add_executable(PlatformerTest ${MAIN_FILE} ${SRC_FILES})
 
 # Link SDL3
 target_link_libraries(PlatformerTest PRIVATE SDL3::SDL3)
+
+# Include headers from src/ and subfolders
+target_include_directories(PlatformerTest PRIVATE ${CMAKE_SOURCE_DIR}/src)
