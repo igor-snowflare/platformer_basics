@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 #include "core_objects/game_object.hpp"
 #include "core_objects/player.hpp"
 #include "core_objects/world/room.hpp"
@@ -11,10 +12,9 @@ public:
 	Game();
 	Player player;
 	std::vector<Room> rooms;
-	Room* activeRoom;
+	const Room* activeRoom;
 
 	void addRoom(Room& targetRoom);
 	void determineActiveRoom();
-	Room* getActiveRoom();
 
 };

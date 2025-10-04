@@ -14,8 +14,12 @@ void Game::determineActiveRoom() {
 	// Different execution depending on whether there is an active room right now
 	if (activeRoom == nullptr) {
 		// If no active room, loop through all available by constant reference for efficiency
-		std::cout << "Would initialize from blank" << std::endl;
+		for (const auto& room : rooms) {
+			if (player.position.x > room.getBounds().xMin && player.position.x < room.getBounds().xMax && player.position.y > room.getBounds().yMin && player.position.y < room.getBounds().yMax) {
+				activeRoom = &room;
+				std::cout << "I now have an active room!" << std::endl;
+				break;
+			}
+		}
 	}
 }
-
-Room* Game::getActiveRoom() { return activeRoom; }

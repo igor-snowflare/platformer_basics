@@ -11,14 +11,18 @@ movement
 
 #include <iostream>
 #include "core_objects/primitives/vector_2.hpp"
+#include "core_objects/primitives/bounds.hpp"
+#include "../../../configs/collision_configs.hpp"
 
 class Room {
 public:
 	Room(int posX, int posY, int sizeX, int sizeY);
 	Vector2 getSize();
 	Vector2 getPosition();
+	Bounds getBounds() const;
 
 private:
 	Vector2 size;
 	Vector2 position;
+	Bounds bounds;
 };
