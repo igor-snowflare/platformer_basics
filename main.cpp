@@ -1,32 +1,29 @@
 #include <iostream>
 
 #include "configs/window_configs.hpp"
-#include "game_loop/game.hpp"
 #include "game_loop/game_manager.hpp"
-#include "src/core_objects/game_object.hpp"
-#include "src/core_objects/world/room.hpp"
 
 int main() {
-	// Initialize the player (manually for now, improve later)
-	Player player = Player(0, 0, 1, 1);
-	std::cout << "Player object created..." << std::endl;
-
-	// Initialize the game manager
-	GameManager gameManager = GameManager(player);
-	std::cout << "Game Manager created..." << std::endl;
-
 	// Initialize the game
-	Game game = Game(windowTitle, screenWidth, screenHeight, false, gameManager);
-
+	GameManager gameManager = GameManager(windowTitle, screenWidth, screenHeight, false);
 
 	// Generate the test room
-	Room testRoom = Room(10, 6, 20, 12);
+	//Room testRoom = Room(0, 0, 20, 12);
 
 	//game.addRoom(testRoom);
 
-	while (game.running()) {
-		game.handleEvents();
-		game.render();
+	// Test if collisions still work following the rework
+	std::cout << "Horizontal collisions!" << std::endl;
+	gameManager.game.player.testHorizontalCollision(1);
+	std::cout << "=============================================" << std::endl;
+	std::cout << "Vertical collisions!" << std::endl;
+	gameManager.game.player.testVerticalCollision(1, 1);
+	std::cout << "=============================================" << std::endl;
+
+
+	while (gameManager.engine.running()) {
+		gameManager.engine.handleEvents();
+		gameManager.engine.render();
 	}
 
 	return 0;

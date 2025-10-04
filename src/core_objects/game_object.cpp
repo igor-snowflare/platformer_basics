@@ -2,7 +2,7 @@
 
 #include "game_object.hpp"
 
-GameObject::GameObject(float initPosX, float initPosY, float sizeX, float sizeY) : 
+GameObject::GameObject(float initPosX, float initPosY, float sizeX, float sizeY, int _direction) : 
 	position(initPosX, initPosY),
 	collider(sizeX, sizeY),
 	direction(1)

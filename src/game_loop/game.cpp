@@ -1,54 +1,21 @@
 #include "game.hpp"
 
-Game::Game(std::string_view title, int width, int height, bool fullscreen, GameManager& _gameManager) : gameManager(_gameManager) {
-	int flags = 0;
+Game::Game() : player(playerPosX, playerPosY, playerSizeX, playerSizeY) {
+	activeRoom = nullptr;
+	std::cout << "Game object generated..." << std::endl;
+}
 
-	if (fullscreen) {
-		flags = SDL_WINDOW_FULLSCREEN;
-	}
+void Game::addRoom(Room &targetRoom) {
+	rooms.push_back(targetRoom);
+	std::cout << "Another room has been added to the level!" << std::endl;
+}
 
-	if (SDL_Init(SDL_INIT_VIDEO)) {
-		std::cout << "Subsystems Initialized..." << std::endl;
-		window = SDL_CreateWindow(title.data(), width, height, flags);
-
-		if (window) {
-			std::cout << "Window Created..." << std::endl;
-		}
-
-		renderer = SDL_CreateRenderer(window, NULL);
-
-		if (renderer) {
-			SDL_SetRenderDrawColor(renderer, 52, 72, 87, 255);
-			std::cout << "Rendered Initialized..." << std::endl;
-		}
-
-		isRunning = true;
-	} else {
-		std::cout << "Initialization failed" << std::endl;
-		SDL_GetError();
-		isRunning = false;
+void Game::determineActiveRoom() {
+	// Different execution depending on whether there is an active room right now
+	if (activeRoom == nullptr) {
+		// If no active room, loop through all available by constant reference for efficiency
+		std::cout << "Would initialize from blank" << std::endl;
 	}
 }
 
-bool Game::running() {
-	return isRunning;
-}
-
-void Game::handleEvents() {
-	SDL_Event event;
-	SDL_PollEvent(&event);
-
-	switch (event.type) {
-		case SDL_EVENT_QUIT:
-			isRunning = false;
-			break;
-		
-		default:
-			break;
-	}
-}
-
-void Game::render() {
-	SDL_RenderClear(renderer);
-	SDL_RenderPresent(renderer);
-}
+Room* Game::getActiveRoom() { return activeRoom; }

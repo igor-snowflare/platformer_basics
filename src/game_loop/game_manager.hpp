@@ -2,20 +2,13 @@
 
 #include <iostream>
 #include <vector>
-#include "core_objects/game_object.hpp"
-#include "core_objects/player.hpp"
-#include "core_objects/world/room.hpp"
-
-class Game;
+#include "game.hpp"
+#include "engine.hpp"
 
 class GameManager {
 public:
-	GameManager(GameObject& _player);
-	GameObject& player;
-	std::vector<Room> rooms;
-	Room* activeRoom;
-
-	void addRoom(Room& targetRoom);
-	void determineActiveRoom();
-	Room* getActiveRoom();
+	GameManager(std::string_view title, int width, int height, bool fullscreen);
+	Engine engine;
+	Game game;
+	
 };

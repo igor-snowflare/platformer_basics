@@ -1,3 +1,12 @@
+/* ===============================================================================================
+
+A generic Room object that will own the tileset and in future play a role in camera
+movement
+	- Both position and size are provided in World Units and as such are dependent on
+	collision_config's blockSize
+
+=============================================================================================== */
+
 #pragma once
 
 #include <iostream>
