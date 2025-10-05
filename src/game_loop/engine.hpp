@@ -10,6 +10,7 @@ public:
 	bool running();
 	void handleEvents();
 	void render();
+	SDL_Renderer* getRenderer();
 
 private:
 	bool isRunning;

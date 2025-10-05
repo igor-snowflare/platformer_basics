@@ -14,7 +14,9 @@ void Game::determineActiveRoom() {
 	// Different execution depending on whether there is an active room right now
 	if (activeRoom == nullptr) {
 		// If no active room, loop through all available by constant reference for efficiency
-		for (const auto& room : rooms) {
+		for (auto& room : rooms) {
+			Bounds roomBounds = room.getBounds();
+
 			if (player.position.x > room.getBounds().xMin && player.position.x < room.getBounds().xMax && player.position.y > room.getBounds().yMin && player.position.y < room.getBounds().yMax) {
 				activeRoom = &room;
 				std::cout << "I now have an active room!" << std::endl;
@@ -22,4 +24,21 @@ void Game::determineActiveRoom() {
 			}
 		}
 	}
+
+	// Sanity check
+	if (activeRoom == nullptr) {
+		std::cout << "Assignment actually failed..." << std::endl;
+	} else {
+		std::cout << "Assignment confirmed as successful..." << std::endl;
+	}
+}
+
+void Game::render(SDL_Renderer* renderer) {
+	SDL_SetRenderDrawColor(renderer, 52, 72, 87, 255);
+	SDL_RenderClear(renderer);
+	activeRoom->renderTiles(renderer);
+	player.render(renderer);
+	SDL_RenderPresent(renderer);
+	// Second function to be added
+	//renderPlayer()
 }

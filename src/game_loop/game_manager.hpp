@@ -10,5 +10,6 @@ public:
 	GameManager(std::string_view title, int width, int height, bool fullscreen);
 	Engine engine;
 	Game game;
+	void render();
 	
 };

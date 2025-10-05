@@ -8,7 +8,13 @@ int main() {
 	GameManager gameManager = GameManager(windowTitle, screenWidth, screenHeight, false);
 
 	// Generate the test room
-	Room testRoom = Room(0, 0, 20, 12);
+	Room testRoom = Room(11, 6, 20, 10);
+	testRoom.updateTileValue(6, 8, true);
+	testRoom.updateTileValue(7, 8, true);
+	testRoom.updateTileValue(8, 8, true);
+	testRoom.updateTileValue(9, 8, true);
+	testRoom.updateTileValue(10, 8, true);
+	testRoom.updateTileValue(11, 8, true);
 
 	gameManager.game.addRoom(testRoom);
 	gameManager.game.determineActiveRoom();
@@ -25,7 +31,7 @@ int main() {
 
 	while (gameManager.engine.running()) {
 		gameManager.engine.handleEvents();
-		gameManager.engine.render();
+		gameManager.render();
 	}
 
 	return 0;

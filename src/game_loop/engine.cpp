@@ -50,3 +50,5 @@ void Engine::render() {
 	SDL_RenderClear(renderer);
 	SDL_RenderPresent(renderer);
 }
+
+SDL_Renderer* Engine::getRenderer() { return renderer; }

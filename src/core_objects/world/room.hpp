@@ -10,6 +10,8 @@ movement
 #pragma once
 
 #include <iostream>
+#include <vector>
+#include <SDL3/SDL.h>
 #include "core_objects/primitives/vector_2.hpp"
 #include "core_objects/primitives/bounds.hpp"
 #include "../../../configs/collision_configs.hpp"
@@ -19,10 +21,16 @@ public:
 	Room(int posX, int posY, int sizeX, int sizeY);
 	Vector2 getSize();
 	Vector2 getPosition();
-	Bounds getBounds() const;
+	Bounds getBounds();
+
+	void updateTileValue(int x, int y, bool newValue);
+	void renderTiles(SDL_Renderer* renderer);
 
 private:
 	Vector2 size;
 	Vector2 position;
 	Bounds bounds;
+
+	std::vector<bool> tiles;
+	Vector2 tileOffset;
 };
