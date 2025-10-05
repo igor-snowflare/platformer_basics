@@ -27,7 +27,7 @@ void Collider::raycastX(int direction, float distance, Vector2 position) {
 	}
 }
 
-void Collider::raycastY(int direction, float distance, Vector2 position) {
+void Collider::raycastY(int direction, float distance, Vector2 position, bool debug, SDL_Renderer* renderer) {
 	// Determine the origin points
 	std::vector<Vector2> originPoints;
 
@@ -40,5 +40,12 @@ void Collider::raycastY(int direction, float distance, Vector2 position) {
 		float xPos = startX + (verticalRaysSpacing * i);
 		originPoints.push_back(Vector2(xPos, yPos));
 		//std::cout << "I am casting a ray from coordinates " << xPos <<  ", " << yPos << std::endl;
+	}
+
+	if (debug) {
+		for (int i=0; i < verticalOriginsCount; i++) {
+			SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+			SDL_RenderPoint(renderer, originPoints[i].x, originPoints[i].y);
+		}
 	}
 }

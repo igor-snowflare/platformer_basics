@@ -9,6 +9,7 @@ A generic Collider object to be used for handling Game Objects Physics
 #pragma once
 #include "../../configs/collision_configs.hpp"
 #include <vector>
+#include <SDL3/SDL.h>
 
 #include "primitives/vector_2.hpp"
 
@@ -19,7 +20,7 @@ public:
 	Vector2 getSize();
 
 	void raycastX(int direction, float distance, Vector2 position);
-	void raycastY(int direction, float distance, Vector2 position);
+	void raycastY(int direction, float distance, Vector2 position, bool debug=false, SDL_Renderer* renderer=nullptr);
 
 private:
 	Vector2 size;

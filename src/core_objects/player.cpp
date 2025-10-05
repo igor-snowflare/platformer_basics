@@ -1,7 +1,8 @@
 #include "player.hpp"
 
 Player::Player(float initPosX, float initPosY, float sizeX, float sizeY) : GameObject(initPosX, initPosY, sizeX, sizeY) {
-	std::cout << "Player object generated..." << std::endl;
+	std::cout << "Player object generated at position " << position.x << ", " << position.y << std::endl;
+	std::cout << "Player size is " << collider.getSize().x << ", " << collider.getSize().y << std::endl;
 }
 
 void Player::render(SDL_Renderer* renderer) {

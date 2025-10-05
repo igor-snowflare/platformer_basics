@@ -15,7 +15,7 @@ Room::Room(int posX, int posY, int sizeX, int sizeY) :
 	//std::cout << "I generated " << sizeX * sizeY << " tiles" << std::endl;
 	std::cout << "My offsets are " << tileOffset.x << ", " << tileOffset.y << std::endl;
 
-	//std::cout << "Room initialized on position " << position.x << ", " << position.y << " and with size of " << size.x << ", " << size.y << std::endl;
+	std::cout << "Room initialized on position " << position.x << ", " << position.y << " and with size of " << size.x << ", " << size.y << std::endl;
 	//std::cout << "My bounds are as follows:" << std::endl;
 	//std::cout << "Max X: " << bounds.xMax << std::endl;
 	//std::cout << "Min X: " << bounds.xMin << std::endl;
@@ -53,6 +53,7 @@ void Room::renderTiles(SDL_Renderer* renderer) {
 
 				SDL_SetRenderDrawColor(renderer, 105, 106, 136, 255);
 				SDL_RenderFillRect(renderer, &draw_position);
+				//std::cout << "Full block on the position of " << draw_position.x << ", " << draw_position.y << std::endl;
 			} else {
 				float tilePosX = (x * blockSize) + tileOffset.x;
 				float tilePosY = (y * blockSize) + tileOffset.y;

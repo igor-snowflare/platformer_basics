@@ -15,6 +15,8 @@ int main() {
 	testRoom.updateTileValue(9, 8, true);
 	testRoom.updateTileValue(10, 8, true);
 	testRoom.updateTileValue(11, 8, true);
+	testRoom.updateTileValue(12, 8, true);
+	testRoom.updateTileValue(13, 8, true);
 
 	gameManager.game.addRoom(testRoom);
 	gameManager.game.determineActiveRoom();

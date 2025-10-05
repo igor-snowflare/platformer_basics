@@ -38,6 +38,7 @@ void Game::render(SDL_Renderer* renderer) {
 	SDL_RenderClear(renderer);
 	activeRoom->renderTiles(renderer);
 	player.render(renderer);
+	player.collider.raycastY(1, 64, player.position, true, renderer);
 	SDL_RenderPresent(renderer);
 	// Second function to be added
 	//renderPlayer()
